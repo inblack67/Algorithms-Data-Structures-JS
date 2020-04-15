@@ -3,8 +3,23 @@
 // ex. longestWord('Hi there, my name is Brad') === 'there,'
 
 function longestWord(sen) {
+
   // SOLUTION 1 - Return a single longest word
+  const words = sen.match(/[a-z0-9]+/gi);
+  let max = 0;
+  let longestWord;
+  words.forEach(w => {
+    if(w.length >= max ){
+      max = w.length;
+      longestWord = w;
+    }
+  });
+
+  
   // SOLUTION 2 - Return an array and include multiple words if they have the same length
+  const longestWordArray = words.filter(w => w.length === longestWord.length);
+  return longestWordArray.length === 1 ? longestWordArray.join('') : longestWordArray;
+
   // SOLUTION 3 - Only return an array if multiple words, otherwise return a string
 }
 
