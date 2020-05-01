@@ -159,5 +159,39 @@ const sum = () => {
 
 const reverse = () => arrays.reverse();     // changes original array
 
-console.log(arrays);
-console.log(reverse());
+// console.log(arrays);
+// console.log(reverse());
+
+// SORTED ARRAYS
+const sortedInsertion = (arrays, x) => {
+    arrays.unshift(x)
+    return arrays.sort((a, b) => a - b);
+};
+
+// console.log(sortedInsertion(arrays, 10));
+
+const isSorted = arrays => {
+
+    for(let i=0; i<arrays.length; i++){
+        if(arrays[i] > arrays[i+1]){
+            return false;
+        }
+    }
+    return true;
+}
+
+// console.log(isSorted([1,53,333,2533,533]));
+
+const mergeArrays = (arr1, arr2) => {
+    // return arr1.concat(arr2);
+    // return [...arr1, ...arr2];
+
+    // no duplicates (UNIQUE)
+    const arr3 = [...arr1, ...arr2];
+    return arr3.filter((value, index) => {
+        // only first position taken into account
+        return arr3.indexOf(value) === index;
+    });
+}
+
+console.log(mergeArrays([1,2,3,4], [5,2,1,8]));
