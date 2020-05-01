@@ -45,14 +45,14 @@ const improvedSearch = x => {
 
     return 'not found';
 }
-
-console.log(improvedSearch(5));
-console.log(improvedSearch(5));
-console.log(improvedSearch(5));
-console.log(improvedSearch(5));
-console.log(improvedSearch(5));
-console.log(improvedSearch(5));
-console.log(improvedSearch(5));
+// Becomes O(1) after sometime as the key element keep on comming at the 0th index
+// console.log(improvedSearch(5));
+// console.log(improvedSearch(5));
+// console.log(improvedSearch(5));
+// console.log(improvedSearch(5));
+// console.log(improvedSearch(5));
+// console.log(improvedSearch(5));
+// console.log(improvedSearch(5));
 
 
 // Swap 2 vars by destructuring
@@ -60,3 +60,29 @@ console.log(improvedSearch(5));
 // console.log(a,b);
 // [a, b] = [b,a];
 // console.log(a,b);
+
+
+// BINARY Search
+const binarySearch = key => {
+
+    let low = 0, high = arrays.length, mid;
+
+    while(low <= high){
+
+        console.log('I tried');     // only 2 times
+
+        mid = Math.floor((low + high)/2);
+        if(key === arrays[mid]){
+            return mid;
+        }
+        else if(key < arrays[mid]){
+            high = mid - 1;
+        }
+
+        else if(key > arrays[mid]){
+            low = mid + 1;
+        }
+    }
+}
+
+console.log(binarySearch(5));
