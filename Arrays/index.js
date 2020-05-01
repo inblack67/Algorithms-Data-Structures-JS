@@ -105,4 +105,59 @@ const recursvieBinarySearch = (array, low , high, key) => {
     return -1;
 }
 
-console.log(recursvieBinarySearch(arrays, 0, arrays.length - 1, -2));
+// console.log(recursvieBinarySearch(arrays, 0, arrays.length - 1, -2));
+
+const maximum = () => {
+    
+    // return Math.max.apply(this, arrays);
+
+    return arrays.sort((a, b) => b-a)[0];
+
+    // let max = Number.MIN_SAFE_INTEGER;
+    // arrays.forEach(element => {
+    //     if(element > max){
+    //         max = element;
+    //     }
+    // })
+
+    // return max;
+}
+
+const minimum = () => {
+    // return Math.min.apply(this, arrays);
+
+    return arrays.sort((a, b) => a-b)[0];
+
+    // let min = Number.MAX_SAFE_INTEGER;
+    // arrays.forEach(element => {
+    //     if(element < min){
+    //         min = element;
+    //     }
+    // })
+
+    // return min;
+
+}
+
+// console.log(maximum());
+// console.log(minimum());
+
+const sum = () => {
+
+    return arrays.reduce((acc, element) => acc + element,0);
+
+    // let sum = 0;
+
+
+    // arrays.forEach(element => {
+    //     sum += element;
+    // });
+
+    return sum;
+}
+// console.log(sum());
+
+const reverse = () => arrays.reverse();     // changes original array
+
+console.log(arrays);
+console.log(reverse());
