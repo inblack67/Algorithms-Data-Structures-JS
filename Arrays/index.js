@@ -194,4 +194,15 @@ const mergeArrays = (arr1, arr2) => {
     });
 }
 
-console.log(mergeArrays([1,2,3,4], [5,2,1,8]));
+// console.log(mergeArrays([1,2,3,4], [5,2,1,8]));
+
+// missing elements in an array wrt to another
+const missing = (arr1, arr2) => {
+    return arr1.filter((v, i) => {
+        if(!arr2.includes(v)){
+            return v;
+        }
+    });
+}
+
+console.log(missing([1,2,3,4,5], [2,3,4]));
