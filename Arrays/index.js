@@ -62,7 +62,7 @@ const improvedSearch = x => {
 // console.log(a,b);
 
 
-// BINARY Search
+// BINARY Search Array MUST be Sorted
 const binarySearch = key => {
 
     let low = 0, high = arrays.length, mid;
@@ -84,5 +84,25 @@ const binarySearch = key => {
         }
     }
 }
+// console.log(binarySearch(3));
 
-console.log(binarySearch(5));
+const recursvieBinarySearch = (array, low , high, key) => {
+    
+    if(low <= high){
+        const mid = Math.floor((high + low) / 2);
+        if(key === array[mid]){
+            return mid;
+        }
+        else if(key < arrays[mid]){
+            return recursvieBinarySearch(array, low, mid - 1, key);
+        }
+        
+        else if(key > arrays[mid]){
+            return recursvieBinarySearch(array, mid + 1, high, key);
+        }
+    }
+    
+    return -1;
+}
+
+console.log(recursvieBinarySearch(arrays, 0, arrays.length - 1, -2));
