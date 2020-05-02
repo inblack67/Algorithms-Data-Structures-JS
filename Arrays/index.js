@@ -205,4 +205,28 @@ const missing = (arr1, arr2) => {
     });
 }
 
-console.log(missing([1,2,3,4,5], [2,3,4]));
+// console.log(missing([1,2,3,4,5], [2,3,4]));
+
+// Hashing  Duplicates
+const hashing = (arr) => {
+    const hash = [];
+    const duplicates = [];
+
+    for(let i=0; i<= 71; i++){
+        hash.push(0);
+    }
+
+    arr.forEach((v, i) => {
+        ++hash[v];
+    })
+
+    hash.forEach((v, i) => {
+        if(v > 1){
+            duplicates.push(i);
+        }
+    })
+
+    return duplicates;
+}
+
+console.log(hashing([66,67,,69,69, 66, 68,69,70,71, 71, 71, 4,5,2,1,12,3,4,5]));
