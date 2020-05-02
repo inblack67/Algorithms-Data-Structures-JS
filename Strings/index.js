@@ -33,14 +33,26 @@ const toggleCases = str => {
 
 // console.log(toggleCases(string));
 
-const countingVowelsAndConsonants = str => {
+const vowelsAndConsonants = str => {
 
     let result = {};
 
     const vowels = [];
     const consonants = [];
 
-    str.split('').filter(v => v.match(/[aeiou]/gi) ? vowels.push(v) : consonants.push(v))
+    const arr = str.toLowerCase().split('');
+
+    arr.filter((v, i) => {
+        if(v !== ' '){
+        if(v.match(/[aeiou]/gi) && arr.indexOf(v) === i){
+            vowels.push(v) 
+        }
+        else if(!v.match(/[aeiou]/gi) && arr.indexOf(v) === i){
+            consonants.push(v)
+        }
+        }
+        
+    })
 
     result.vowels = vowels;
     result.consonants = consonants;
@@ -48,4 +60,16 @@ const countingVowelsAndConsonants = str => {
     return result;
 }
 
-console.log(countingVowelsAndConsonants(string));
+// console.log(vowelsAndConsonants(string));
+
+const purifyString = str => str.replace(/[^\w]/g, '').toLowerCase().split('').sort().join('');
+
+const isPallindrome = str => {
+    return str.split('').reverse().join('') === str;
+}
+
+// console.log(isPallindrome('racecar'));
+
+const isAnagram = (str1, str2) => purifyString(str1) === purifyString(str2);
+
+console.log(isAnagram('dormitory', 'dirtyroom###'));
