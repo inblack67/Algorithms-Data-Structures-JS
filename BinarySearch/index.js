@@ -19,7 +19,8 @@ const binarySearch = (x, arr) => {
 
         console.log('I tried');
 
-        const middle = low + Math.floor((high - low) / 2);
+        // const middle = low + Math.floor((high - low) / 2);
+        const middle = Math.floor((low + high)/2);
 
         if(arr[middle] === x){
             return middle;
