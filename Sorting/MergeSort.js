@@ -1,5 +1,5 @@
 const arr = [8,2,9,6,5,3,7,4,1];
-let low = 0, high = arr.length, mid = Math.floor(arr.length/2);
+let low = 0, high = arr.length-1, mid = Math.floor(arr.length/2);
 
 const merge = (arr, low, mid, high) => {
     let mergedArr = [];
