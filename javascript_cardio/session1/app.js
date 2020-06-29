@@ -1,20 +1,28 @@
-function reverseString(str){
-
-
-    // const result = Array.from(str).reverse().join('');
-
-    // const result = str.split('').reverse().join('');
-
-    // 1 extra = \0
-    let result = '';
-    for(let i=str.length - 1; i>=0; i--){
-        result += str[i];
+function maxChar(str){
+    let result = purify(str);
+    const object = {};
+    result.split('').forEach(s => {
+        if(!object[s]){
+            object[s] = 1;
+        }
+        else{
+            object[s]++;
+        }
+    })
+    let max = Number.MIN_SAFE_INTEGER;
+    let char = '';
+    for (const k in object) {
+        if(object[k] > max){
+            max = object[k];
+            char = k;
+        }
     }
-
-    console.log(str[str.length-1])
-
-    return result;
+    return { char, max };
 }
 
-const output = reverseString('hello');
+function purify(str){
+    return str.toLowerCase().trim();
+}
+
+const output = maxChar('Aman Bhardwaj');
 console.log(output)
