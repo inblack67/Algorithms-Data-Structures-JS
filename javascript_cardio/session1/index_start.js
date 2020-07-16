@@ -125,11 +125,51 @@ function fizzBuzz() {
   }
 }
 
+// Count the occurrence of keys and convert the result into array of objects where each object belongs to one key and it's occurrence (count).
+// eg. [{ language: 'JavaScript' },{ language: 'JavaScript' },{ language: 'TypeScript' },] SHOULD BE CONVERTED TO =
+// [
+//   { language: 'JavaScript', count: 2 },
+//   { language: 'C++', count: 1 },
+//   { language: 'TypeScript', count: 1 }
+// ]
+const arrayOfObjects = (repos) => {
+
+  const languages = {};
+
+  repos.forEach((repo) => {
+      if(languages[repo.language]){
+          languages[repo.language]++;
+      }
+      else{
+          languages[repo.language] = 1;
+      }
+  })
+
+  let langObject = [];
+
+  for (const key in languages) {
+      langObject = [...langObject, { language: key, count: languages[key]}];
+  }
+
+  return langObject;
+}
+
 
 
 // Call Function
-const output = maxCharacter('JavaScript');
+const output = arrayOfObjects([
+  {
+    language: 'JavaScript',
+  },
+  {
+    language: 'C++',
+  },
+  {
+    language: 'JavaScript',
+  },
+  {
+    language: 'TypeScript',
+  },
+]);
 
-// console.log(output);
-
-fizzBuzz();
+console.log(output);
